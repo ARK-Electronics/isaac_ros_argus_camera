@@ -31,8 +31,10 @@ def generate_launch_description():
             ('/left/camerainfo' , '/camerainfo'),
             ('/left/camerainfo/nitros', '/camerainfo/nitros'),
         ],
-        arguments=['--ros-args', '--mode', 2, '--camera_type', 0],
-
+        parameters=[
+            {"mode": 2},
+            {"camera_type": 0},
+        ],
     )
     argus_mono_container = ComposableNodeContainer(
             name='argus_mono_container',
