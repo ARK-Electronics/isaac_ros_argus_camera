@@ -25,6 +25,14 @@ def generate_launch_description():
         name='argus_mono',
         package='isaac_ros_argus_camera',
         plugin='nvidia::isaac_ros::argus::ArgusMonoNode',
+        remappings=[
+            ('/left/image_raw', '/image_raw'),
+            ('/left/image_raw/nitros', '/image_raw/nitros'),
+            ('/left/camerainfo' , '/camerainfo'),
+            ('/left/camerainfo/nitros', '/camerainfo/nitros'),
+        ],
+        arguments=['--ros-args', '--mode', 2, '--camera_type', 0],
+
     )
     argus_mono_container = ComposableNodeContainer(
             name='argus_mono_container',
